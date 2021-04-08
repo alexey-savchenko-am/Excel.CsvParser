@@ -1,0 +1,9 @@
+D:\Projects\Excel.CsvParser\src\CsvParser\bin\Debug\netstandard2.1\CsvParser.deps.json
+D:\Projects\Excel.CsvParser\src\CsvParser\bin\Debug\netstandard2.1\CsvParser.dll
+D:\Projects\Excel.CsvParser\src\CsvParser\bin\Debug\netstandard2.1\CsvParser.pdb
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.AssemblyInfoInputs.cache
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.AssemblyInfo.cs
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.csproj.CoreCompileInputs.cache
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.dll
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.pdb
+D:\Projects\Excel.CsvParser\src\CsvParser\obj\Debug\netstandard2.1\CsvParser.csprojAssemblyReference.cache
