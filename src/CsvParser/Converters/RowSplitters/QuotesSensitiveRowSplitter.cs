@@ -48,8 +48,19 @@
 
                     var count = iEnd == len - 1 ? iEnd + 1 - iBeg : iEnd - iBeg;
 
+                    // ",," like row's fix
+                    if (iEnd == len - 1 && ch == separator)
+                    {
+                        yield return new T() { Index = index++, Value = row.Substring(iBeg, count-1).Trim()};
+                        yield return new T() { Index = index++, Value = "" };
+
+                        break;
+                    }
+
                     var str = row.Substring(iBeg, count).Trim();
+
                     iBeg = iEnd + 1;
+                   
                     yield return new T() { Index = index++, Value = removeQuotes ? str.Trim('"') : str };
                 }
 
