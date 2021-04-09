@@ -9,6 +9,11 @@
     using System.Linq;
     using System.Reflection;
 
+    /// <summary>
+    /// Converts row of csv data source to specified model
+    /// This strategy based on reflection
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
     public sealed class ReflectionBasedConverter<TModel>
         : CsvConverter<TModel>
         where TModel : ICsvModel, new()

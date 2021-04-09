@@ -6,6 +6,10 @@
     using System.Diagnostics.Contracts;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Parse csv data source
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
     public abstract class CsvParser<TModel>
          : IDisposable
          where TModel : ICsvModel, new()
@@ -20,16 +24,14 @@
         }
 
         /// <summary>
-        /// Process csv data source
+        /// Process csv data source using <see cref="ICsvRowConvertionStrategy<TModel>"/> strategy
         /// Parser extracts header of csv data source and initialize csvConverter
         /// </summary>
-        /// <param name="csvConverter"></param>
-        /// <param name="removeQuotes"></param>
-        /// <param name="cleanUpResources"></param>
+        /// <param name="csvConverter">csv converter</param>
+        /// <param name="cleanUpResources">clean up resource after obtaining data</param>
         /// <returns></returns>
 		public async Task<bool> ProcessAsync(
             ICsvRowConvertionStrategy<TModel> csvConverter,
-            bool removeQuotes = true,
             bool cleanUpResources = true)
 		{
             if (_dataProvider == null)
@@ -42,7 +44,7 @@
                 if (await iterator.StartAsync().ConfigureAwait(false))
                 {
                     var header = await _dataProvider
-                        .GetHeaderAsync(removeQuotes)
+                        .GetHeaderAsync(true)
                         .ConfigureAwait(false);
                     
                     // initialize csv converter by header row if it has not been initialized before

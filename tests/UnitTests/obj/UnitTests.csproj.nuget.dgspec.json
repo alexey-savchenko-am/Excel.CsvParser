@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj": {}
+    "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
+    "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
+        "projectUniqueName": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
         "projectName": "CsvParser",
-        "projectPath": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
+        "projectPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
         "packagesPath": "C:\\Users\\GORN\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\obj\\",
+        "outputPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -19,7 +19,6 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "D:\\Projects\\NuGet.Config",
           "C:\\Users\\GORN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -66,14 +65,14 @@
         }
       }
     },
-    "D:\\Projects\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj": {
+    "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "D:\\Projects\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj",
+        "projectPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\tests\\UnitTests\\UnitTests.csproj",
         "packagesPath": "C:\\Users\\GORN\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\Excel.CsvParser\\tests\\UnitTests\\obj\\",
+        "outputPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\tests\\UnitTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -81,7 +80,6 @@
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "D:\\Projects\\NuGet.Config",
           "C:\\Users\\GORN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -98,8 +96,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
-                "projectPath": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj"
+              "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
+                "projectPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj"
               }
             }
           }
@@ -137,6 +135,10 @@
             "Microsoft.VisualStudio.TestPlatform": {
               "target": "Package",
               "version": "[14.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.16.1, )"
             },
             "xunit": {
               "target": "Package",

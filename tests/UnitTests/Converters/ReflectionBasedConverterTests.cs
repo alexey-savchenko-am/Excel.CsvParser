@@ -1,40 +1,64 @@
-﻿using AutoFixture;
-using CsvParser.Converters;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using UnitTests.Builders;
-using Xunit;
-
-namespace UnitTests.Converters
+﻿namespace UnitTests.Converters
 {
+    using AutoFixture;
+    using AutoFixture.Kernel;
+    using CsvParser;
+    using CsvParser.Abstract.Models;
+    using CsvParser.Converters;
+    using System.Globalization;
+    using UnitTests.Builders;
+    using Xunit;
+
     public class ReflectionBasedConverterTests
     {
-       /* Fixture _fixture = new Fixture();
-        ReflectionBasedConverter<PersonModel> _converter
-            = new ReflectionBasedConverter<PersonModel>();
+        Fixture _fixture = new Fixture();
 
-        char _separator = ',';
 
         public ReflectionBasedConverterTests()
         {
-            string header = DelimeterStringBuilder.Build(_separator, "person_name", "person_surname", "person_age");
-            _converter.Initialize(null);
+            _fixture.Customizations.Add(
+                 new TypeRelay(typeof(IColumn),typeof(TestColumn)));
+            _fixture.Customizations.Add(
+                new TypeRelay(typeof(IRow), typeof(TestRow)));
         }
 
         [Theory]
         [InlineData("John", "Doe", 42)]
         [InlineData("Ann", "Franklin", 24)]
         [InlineData("Helen", "Woo", 61)]
-        public async Task ConverterProjectHeaderCorrectlyTestAsync(string name, string surname, int age)
+        public void ConverterProjectHeaderCorrectlyTest(string person_name, string person_surname, int person_age)
         {
-            string row = DelimeterStringBuilder.Build(_separator, name, surname, age.ToString());
-            var result = await _converter.ConvertAsync(row);
+            // arrange
 
-            Assert.Equal(name, result.Name);
-            Assert.Equal(surname, result.Surname);
-            Assert.Equal(age, result.Age);
-        }*/
+            var converter = new ReflectionBasedConverter<PersonModel>(CultureInfo.InvariantCulture);
+            var header = CsvTextBuilder.BuildRow(_fixture, nameof(person_name), nameof(person_surname), nameof(person_age));
+            converter.Initialize(header);
+
+            var bodyRow = CsvTextBuilder.BuildRow(_fixture, person_name, person_surname, person_age.ToString());
+
+            // act
+            var result = converter.Convert(bodyRow);
+
+            // assert
+            Assert.Equal(person_name, result.Name);
+            Assert.Equal(person_surname, result.Surname);
+            Assert.Equal(person_age, result.Age);
+        }
+
+        public class PersonModel
+            : ICsvModel
+        {
+
+            [CsvHeader("person_age")]
+            public int Age { get; set; }
+
+            [CsvHeader("person_surname")]
+            public string Surname { get; set; }
+
+            [CsvHeader("person_name")]
+            public string Name { get; set; }
+
+
+        }
     }
 }

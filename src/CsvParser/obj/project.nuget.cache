@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f1nJwWVoZ/16/N8BchkAceg9tj6f+EChOg1laS3NcayyDdqB6sEsGsVJPFe7ZQBWAyG0Mu6FvHQwrK5wpjUiiQ==",
+  "dgSpecHash": "wjO1fjcZUf2p+0Xqz9R5CcvIiDIVb5O9Q0t9Olaao5t6u3MHJK4eL69cjSckMhKE6DYD2oa88o5//+EQPQQZxg==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
+  "projectFilePath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

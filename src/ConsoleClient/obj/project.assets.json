@@ -72,11 +72,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\Excel.CsvParser\\src\\ConsoleClient\\ConsoleClient.csproj",
+      "projectUniqueName": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\ConsoleClient\\ConsoleClient.csproj",
       "projectName": "ConsoleClient",
-      "projectPath": "D:\\Projects\\Excel.CsvParser\\src\\ConsoleClient\\ConsoleClient.csproj",
+      "projectPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\ConsoleClient\\ConsoleClient.csproj",
       "packagesPath": "C:\\Users\\GORN\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\Excel.CsvParser\\src\\ConsoleClient\\obj\\",
+      "outputPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\ConsoleClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -84,7 +84,6 @@
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "D:\\Projects\\NuGet.Config",
         "C:\\Users\\GORN\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -101,8 +100,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
-              "projectPath": "D:\\Projects\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj"
+            "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj": {
+              "projectPath": "C:\\Users\\GORN\\Desktop\\Excel.CsvParser\\src\\CsvParser\\CsvParser.csproj"
             }
           }
         }

@@ -1,14 +1,32 @@
-﻿using AutoFixture;
-using AutoFixture.Kernel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace UnitTests.Builders
+﻿namespace UnitTests.Builders
 {
+    using AutoFixture;
+    using AutoFixture.Kernel;
+    using CsvParser.Abstract.Models;
+    using System;
+    using System.Linq;
+    using System.Text;
+
     static class CsvTextBuilder
     {
+
+        public static IRow BuildRow(Fixture fixture, params string[] values)
+        {
+          
+            var columns = values.Select((val, idx) =>
+            {
+               var col = new Fixture().Build<TestColumn>()
+                .With(i => i.Index, idx)
+                .With(v => v.Value, val)
+                .Create();
+
+                return col;
+            });
+
+            return new TestRow(0, columns);
+
+        }
+
         public static string Build(char separator, params string[] values)
         {
             var fixture = new Fixture();

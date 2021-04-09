@@ -13,7 +13,7 @@ namespace ConsoleClient
 {
     class Program
     {
-        class CsvModel
+        class CsvModel : ICsvModel
         {
             [CsvHeader("Year")]
             public int Year { get; set; }
@@ -82,7 +82,7 @@ namespace ConsoleClient
             using (var parser = new SequentialParser<Action>(provider, OnRowProcessed))
             {
                 var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
-                var isProcessed = await parser.ProcessAsync(converter, true, true);
+                var isProcessed = await parser.ProcessAsync(converter, true);
             }
 
             var status = provider.GetIterator().IsStarted;

@@ -49,8 +49,8 @@
 
 
         /// <summary>
-        /// Get all data from csv file
-        /// Callback invokes each getting of row
+        /// Get all data from csv data source.
+        /// Callback invokes each getting of row.
         /// </summary>
         /// <param name="callback"></param>
         /// <param name="removeQuotes"></param>
@@ -76,7 +76,7 @@
         }
 
         /// <summary>
-        /// Extract header row from csv data source
+        /// Extracts header row from csv data source
         /// </summary>
         /// <returns></returns>
         public virtual async Task<IRow> GetHeaderAsync(bool removeQuotes = true)

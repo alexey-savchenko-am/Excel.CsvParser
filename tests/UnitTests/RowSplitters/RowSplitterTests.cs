@@ -16,12 +16,5 @@ namespace UnitTests.RowSplitters
             var splitter = new QuotesSensitiveRowSplitter();
             var columns = splitter.SplitRow<TestColumn>(str, ',', true);
         }
-
-
-        class TestColumn : IColumn
-        {
-            public int Index { get; set; }
-            public string Value { get; set; }
-        }
     }
 }

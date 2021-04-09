@@ -4,6 +4,12 @@
     using System.Collections.Generic;
     using System.Globalization;
 
+    /// <summary>
+    /// Converts row of csv data source to specified model.
+    /// Specify culture inside constructor.
+    /// Use Initialize method before Convert.
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
     public abstract class CsvConverter<TModel>
         : ICsvRowConvertionStrategy<TModel>
         where TModel : ICsvModel, new()
@@ -18,7 +24,6 @@
         }
 
         public abstract bool Initialize(IRow header);
-
 
         public abstract TModel Convert(IEnumerable<IColumn> value);
 

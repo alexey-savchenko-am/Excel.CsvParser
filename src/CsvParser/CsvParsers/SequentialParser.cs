@@ -7,6 +7,11 @@
     using System;
     using System.Threading.Tasks;
 
+    /// <summary>
+    /// Parse csv data source sequentially, line by line
+    /// Each csv body line obtaining invokes specified callback method
+    /// </summary>
+    /// <typeparam name="TModel"></typeparam>
     public class SequentialParser<TModel>
         : CsvParser<TModel>
         where TModel: ICsvModel, new()
