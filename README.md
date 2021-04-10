@@ -39,7 +39,7 @@ class Action : ICsvModel
 After model definition you should configure data parser. 
 There are two possible csv parsers at the moment: InMemoryParser and SequentialParser.
 The first one parse specific csv file in memory and returns data as a collection of specified model.
-SequentualParser allows to invoke specified deligate each time csv file's body row processed.
+SequentualParser allows to invoke specified delegate each time csv file's body row processed.
 Data parser implements IDisposable interface to close streams after processing, so it should be used within using block.
 For example, lets configure SequentialParser which will output each row to console as Action object.
 Full code of configuring csv parser looks like this one:
