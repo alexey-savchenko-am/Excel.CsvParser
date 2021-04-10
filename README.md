@@ -9,29 +9,29 @@ Each field should have CsvHeaderAttribute containing name as in physical file's 
 For example, assume csv file, which contains header like this: time_ref,"account","code","country_code","product_type",value,"status".
 For such file we could build model like this one:
 ```
-      class Action : ICsvModel
-        {
-            [CsvHeader("time_ref")]
-            public int DateAsInteger { get; set; }
-            
-            [CsvHeader("account")]
-            public string Account { get; set; }
+class Action : ICsvModel
+{
+    [CsvHeader("time_ref")]
+    public int DateAsInteger { get; set; }
+    
+    [CsvHeader("account")]
+    public string Account { get; set; }
 
-            [CsvHeader("code")]
-            public string Code { get; set; }
+    [CsvHeader("code")]
+    public string Code { get; set; }
 
-            [CsvHeader("country_code")]
-            public string Country { get; set; }
+    [CsvHeader("country_code")]
+    public string Country { get; set; }
 
-            [CsvHeader("product_type")]
-            public string ProductType { get; set; }
+    [CsvHeader("product_type")]
+    public string ProductType { get; set; }
 
-            [CsvHeader("value")]
-            public decimal Price { get; set; }
+    [CsvHeader("value")]
+    public decimal Price { get; set; }
 
-            [CsvHeader("status")]
-            public string Status { get; set; }
-        }
+    [CsvHeader("status")]
+    public string Status { get; set; }
+ }
 ```
 
 # Configuring csv parser
@@ -60,5 +60,65 @@ Full code of configuring csv parser looks like this one:
  {
     Console.WriteLine($"Line {rowNumber}:   " + JsonConvert.SerializeObject(model));
  }
+```
+
+# Csv iterator
+
+Iterator allows to enumerate specific file or stream row by row.
+There are two kind of iterators: CsvFileIterator and CsvStreamIterator.
+CsvFileIterator needs filePath in constructor.
+CsvStreamIterator accepts stream.
+You could also specify Encoding:
+
+```
+var iterator = new CsvFileIterator(filePath, Encoding.UTF8);
+```
+
+# Csv row splitter
+
+May be passed to provider specify csv string parsing strategy.
+You could specify your own way for processing csv row implementing interface ISplitRowStrategy:
+
+```
+/// <summary>
+/// Splits specific row of symbols as set of columns.
+/// </summary>
+public interface ISplitRowStrategy
+{
+   IEnumerable<T> SplitRow<T>(string row, char separator, bool removeQuotes)
+     where T: IColumn, new();
+}
+```
+
+Or use DefaultRowSplitter or QuotesSensitiveRowSplitter (which uses by default).
+
+
+# Csv provider
+
+IteratorBasedDataProvider uses CsvFileIterator under the hood. 
+It allows to enumerate rows of specified file line by line. 
+Parser uses it as source for obtaining data.
+The second parameter of IteratorBasedDataProvider is separator, a symbol which uses for separation columns within file:
+
+```
+var separator = ',';
+var iterator = new CsvFileIterator(filePath, Encoding.UTF8);
+var provider = new IteratorBasedDataProvider(iterator, separator);
+```
+
+You could also specify row parsing strategy:
+
+```
+var provider = new IteratorBasedDataProvider(iterator, new QuotesSensitiveRowSplitter(), separator);
+```
+
+# Csv converter
+
+Function of csv converter is converting a raw file string into, in our case, an Action object.
+ReflectionBasedConverter is based on reflection to do this task.
+It requires CultureInfo object to specify culture of the csv file data.
+Parser uses converter while executing its method ProcessAsync, which starts executing parsing.
+```
+ var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
 ```
 
