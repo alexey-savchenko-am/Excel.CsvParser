@@ -40,6 +40,7 @@ After model definition you should configure data parser.
 There are two possible csv parsers at the moment: InMemoryParser and SequentialParser.
 The first one parse specific csv file in memory and returns data as a collection of specified model.
 SequentualParser allows to invoke specified deligate each time csv file's body row processed.
+Data parser implements IDisposable interface to close streams after processing, so it should be used within using block.
 For example, lets configure SequentialParser which will output each row to console as Action object.
 Full code of configuring csv parser looks like this one:
 
@@ -52,7 +53,7 @@ Full code of configuring csv parser looks like this one:
  using (var parser = new SequentialParser<Action>(provider, OnRowProcessed))
  {
       var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
-      var isProcessed = await parser.ProcessAsync(converter, true);
+      var isProcessed = await parser.ProcessAsync(converter, cleanUpResources:true);
  }
  
  // callback method invokes each obtaining of csv row
@@ -117,8 +118,10 @@ var provider = new IteratorBasedDataProvider(iterator, new QuotesSensitiveRowSpl
 Function of csv converter is converting a raw file string into, in our case, an Action object.
 ReflectionBasedConverter is based on reflection to do this task.
 It requires CultureInfo object to specify culture of the csv file data.
-Parser uses converter while executing its method ProcessAsync, which starts executing parsing.
+Parser uses converter while executing its method ProcessAsync, which starts executing parsing:
+
 ```
 var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
+var isProcessed = await parser.ProcessAsync(converter, cleanUpResources:true);
 ```
 
