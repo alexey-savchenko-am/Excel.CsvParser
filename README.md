@@ -56,9 +56,9 @@ Full code of configuring csv parser looks like this one:
  }
  
  // callback method invokes each obtaining of csv row
- private static void OnRowProcessed(int rowNumber, Action model)
+ private void OnRowProcessed(int rowNumber, Action model)
  {
-    Console.WriteLine($"Line {rowNumber}:   " + JsonConvert.SerializeObject(model));
+    Console.WriteLine($"Line {rowNumber}:  " + JsonConvert.SerializeObject(model));
  }
 ```
 
@@ -119,6 +119,6 @@ ReflectionBasedConverter is based on reflection to do this task.
 It requires CultureInfo object to specify culture of the csv file data.
 Parser uses converter while executing its method ProcessAsync, which starts executing parsing.
 ```
- var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
+var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
 ```
 
