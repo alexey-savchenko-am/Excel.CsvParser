@@ -13,5 +13,13 @@
                 separator: separator
               )
         { }
+
+        public IteratorBasedDataProvider(CsvIterator iterator, ISplitRowStrategy rowSplitter, char separator)
+            : base(
+                iterator: iterator,
+                rowSplitter,
+                separator: separator
+              )
+        { }
     }
 }
