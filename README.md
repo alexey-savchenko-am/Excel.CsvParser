@@ -2,6 +2,8 @@
 A tool for parsing csv files. Provides an easy way for extracting data from a specific file in different modes. It currently supports line by line extracting data mode and in-memory file processing. 
 
 # Usage
+Assume we want to extract data from csv file like this one:
+![csv sample](https://github.com/goOrn/Excel.CsvParser/blob/master/screenshots/file.JPG)
 
 To use the tool you should specify model deriving from ICsvModel interface, which contains fields similar to header of file.
 Fields of model may have an arbitrary name and be in no particular order.
