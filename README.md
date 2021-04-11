@@ -9,8 +9,7 @@ Assume we want to extract data from very large csv file, having structure like t
 To use the tool you should specify model deriving from ICsvModel interface, which contains fields similar to header of file.
 Fields of model may have an arbitrary name and be in no particular order.
 Each field should have CsvHeaderAttribute containing name as in physical file's header.
-For example, assume csv file, which contains header like this: time_ref,"account","code","country_code","product_type",value,"status".
-For such file we could build model like this one:
+For file with structure we displayed above we could build model:
 ```
 class Action : ICsvModel
 {
