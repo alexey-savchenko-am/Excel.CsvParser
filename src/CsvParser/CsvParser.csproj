@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Excel.CsvParser</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Alexey Savchenko</Authors>
+    <Product>Excel.CsvParser</Product>
+    <Description>A tool for parsing csv files. Provides an easy way for extracting data from a specific file in different modes. It currently supports line by line extracting data mode and in-memory file processing.</Description>
+    <PackageProjectUrl>https://github.com/goOrn/Excel.CsvParser</PackageProjectUrl>
+    <Copyright>https://github.com/goOrn/Excel.CsvParser/blob/master/LICENSE</Copyright>
+    <PackageLicenseExpression></PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/goOrn/Excel.CsvParser</RepositoryUrl>
+    <PackageTags>netcore csv excel parser</PackageTags>
   </PropertyGroup>
 
 </Project>
