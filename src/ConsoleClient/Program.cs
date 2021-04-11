@@ -7,6 +7,7 @@ using CsvParser.DataProviders.Iterators;
 using Newtonsoft.Json;
 using System;
 using System.Globalization;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleClient
@@ -77,7 +78,7 @@ namespace ConsoleClient
             string filePath = "./verylarge.csv";
             char separator = ',';
 
-            var provider = new IteratorBasedDataProvider(new CsvFileIterator(filePath), separator);
+            var provider = new IteratorBasedDataProvider(new CsvFileIterator(filePath, Encoding.UTF8), separator);
 
             using (var parser = new SequentialParser<Action>(provider, OnRowProcessed))
             {
