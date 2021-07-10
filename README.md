@@ -12,7 +12,7 @@ To use the tool you should specify model deriving from ICsvModel interface, whic
 Fields of model may have an arbitrary name and be in no particular order.
 Each field should have CsvHeaderAttribute containing name as in physical file's header.
 For file with structure we displayed above we could build model:
-```
+```csharp
 class Action : ICsvModel
 {
     [CsvHeader("time_ref")]
@@ -48,7 +48,7 @@ Data parser implements IDisposable interface to close streams after processing, 
 For example, lets configure SequentialParser which will output each row to console as Action object.
 Full code of configuring csv parser looks like this one:
 
-```
+```csharp
  string filePath = "./verylarge.csv";
  char separator = ',';
 
@@ -79,7 +79,7 @@ CsvFileIterator needs filePath in constructor.
 CsvStreamIterator accepts stream.
 You could also specify Encoding:
 
-```
+```csharp
 var iterator = new CsvFileIterator(filePath, Encoding.UTF8);
 ```
 
@@ -88,7 +88,7 @@ var iterator = new CsvFileIterator(filePath, Encoding.UTF8);
 May be passed to provider specify csv string parsing strategy.
 You could specify your own way for processing csv row implementing interface ISplitRowStrategy:
 
-```
+```csharp
 /// <summary>
 /// Splits specific row of symbols as set of columns.
 /// </summary>
@@ -109,7 +109,7 @@ It allows to enumerate rows of specified file line by line.
 Parser uses it as source for obtaining data.
 The second parameter of IteratorBasedDataProvider is separator, a symbol which uses for separation columns within file:
 
-```
+```csharp
 var separator = ',';
 var iterator = new CsvFileIterator(filePath, Encoding.UTF8);
 var provider = new IteratorBasedDataProvider(iterator, separator);
@@ -117,7 +117,7 @@ var provider = new IteratorBasedDataProvider(iterator, separator);
 
 You could also specify row parsing strategy:
 
-```
+```csharp
 var provider = new IteratorBasedDataProvider(iterator, new QuotesSensitiveRowSplitter(), separator);
 ```
 
@@ -128,7 +128,7 @@ ReflectionBasedConverter is based on reflection to do this task.
 It requires CultureInfo object to specify culture of the csv file data.
 Parser uses converter while executing its method ProcessAsync, which starts executing parsing:
 
-```
+```csharp
 var converter = new ReflectionBasedConverter<Action>(CultureInfo.InvariantCulture);
 var isProcessed = await parser.ProcessAsync(converter, cleanUpResources:true);
 ```
