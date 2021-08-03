@@ -1,7 +1,8 @@
-[![NuGet version (Excel.CsvParser)](https://img.shields.io/nuget/v/Excel.CsvParser?style=flat-square&color=blue)](https://www.nuget.org/packages/Excel.CsvParser)
-[![Downloads](https://img.shields.io/nuget/dt/Excel.CsvParser?style=flat-square&color=blue)]()
 # Excel.CsvParser
 A tool for parsing csv files. Provides an easy way for extracting data from a specific file in different modes. It currently supports line by line extracting data mode and in-memory file processing. 
+
+[![NuGet version (Excel.CsvParser)](https://img.shields.io/nuget/v/Excel.CsvParser?style=flat-square&color=blue)](https://www.nuget.org/packages/Excel.CsvParser)
+[![Downloads](https://img.shields.io/nuget/dt/Excel.CsvParser?style=flat-square&color=blue)]()
 
 # Usage
 Assume we want to extract data from very large csv file, having structure like this one:
